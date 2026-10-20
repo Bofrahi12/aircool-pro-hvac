@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إيركول برو — تكييف وتدفئة | AirCool Pro HVAC</title>
+<meta name="description" content="تركيب وصيانة وإصلاح أنظمة التكييف والتدفئة — راحة بيتك في الصيف والشتاء.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ice:#eaf6ff; --ice2:#d7ecff; --blue:#0b6bcb; --blue-d:#074a8f; --navy:#06263f;
+  --ink:#0d2233; --muted:#4d6577; --warm:#ff7a1a; --warm-d:#e85d04; --red:#e63946;
+  --card:#ffffff; --line:#dcebf7; --radius:20px; --shadow:0 18px 45px rgba(6,38,63,.14);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif;color:var(--ink);background:#f7fbff;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--warm);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:20px}
+.skip{position:absolute;right:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:200;border-radius:0 0 12px 0}
+.skip:focus{right:0}
+/* progress */
+#progress{position:fixed;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--warm));width:0;z-index:120}
+/* header */
+header{position:fixed;inset-inline:0;top:0;z-index:110;transition:background .3s,box-shadow .3s}
+header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(6,38,63,.12)}
+.nav{display:flex;align-items:center;gap:18px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;color:var(--navy)}
+.logo .mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue) 55%,var(--warm) 55%);display:grid;place-items:center;color:#fff;font-size:1.15rem;box-shadow:var(--shadow)}
+.logo small{display:block;font-size:.68rem;font-weight:700;color:var(--muted);letter-spacing:.4px}
+.nav-links{display:flex;gap:22px;margin-inline-start:auto;font-weight:700}
+.nav-links a{padding:6px 2px;border-bottom:3px solid transparent}
+.nav-links a:hover{border-color:var(--blue);color:var(--blue-d)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-weight:800;font-size:1rem;padding:13px 24px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s;min-height:48px}
+.btn:active{transform:scale(.97)}
+.btn-call{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(11,107,203,.35)}
+.btn-call:hover{background:var(--blue-d);transform:translateY(-2px)}
+.btn-warm{background:linear-gradient(135deg,var(--warm),var(--warm-d));color:#fff;box-shadow:0 10px 24px rgba(232,93,4,.35)}
+.btn-warm:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:2px solid rgba(255,255,255,.65);backdrop-filter:blur(4px)}
+.btn-ghost:hover{background:rgba(255,255,255,.28)}
+#menuBtn{display:none;background:var(--navy);color:#fff;border:0;border-radius:12px;width:48px;height:48px;font-size:1.3rem;cursor:pointer;margin-inline-start:auto}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,26,44,.88) 8%,rgba(4,26,44,.35) 55%,rgba(4,26,44,.15))}
+.hero-in{position:relative;z-index:2;padding-block:130px 84px;width:100%}
+.kicker{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:999px;font-weight:700;font-size:.92rem;backdrop-filter:blur(4px)}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4.4rem);font-weight:900;line-height:1.25;margin-block:18px 10px;max-width:16ch}
+.hero h1 .cool{color:#8fd3ff}.hero h1 .hot{color:#ffb37a}
+.hero p{font-size:clamp(1.02rem,2vw,1.3rem);max-width:56ch;color:#e7f3ff}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.scroll-hint{margin-top:34px;font-size:.9rem;color:#cfe8ff;display:flex;align-items:center;gap:8px}
+.scroll-hint span{display:inline-block;animation:bob 1.8s infinite;font-size:1.1rem}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+/* chapters */
+.chapter{padding-block:96px;position:relative}
+.chapter.alt{background:linear-gradient(180deg,var(--ice),#fff)}
+.chapter.dark{background:var(--navy);color:#eaf6ff}
+.chapter .grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.big{font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:900;line-height:1.35;color:var(--navy)}
+.dark .big{color:#fff}
+.big .accent{color:var(--blue)} .big .accent-w{color:var(--warm)}
+.lead{color:var(--muted);font-size:1.08rem;margin-top:12px;max-width:52ch}
+.dark .lead{color:#bcd9f2}
+.photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .8s}
+.photo:hover img{transform:scale(1.04)}
+.tag{position:absolute;top:-14px;inset-inline-start:22px;background:var(--warm);color:#fff;font-weight:800;font-size:.85rem;padding:5px 16px;border-radius:999px;z-index:2}
+.photo-wrap{position:relative}
+/* checklist */
+.check-list{list-style:none;margin-top:24px;display:grid;gap:10px}
+.check-list button{width:100%;text-align:right;font-family:inherit;font-size:1.02rem;font-weight:700;background:#fff;border:2px solid var(--line);border-radius:14px;padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .2s,background .2s;color:var(--ink)}
+.check-list button .box{width:26px;height:26px;flex:0 0 26px;border-radius:8px;border:2px solid var(--blue);display:grid;place-items:center;color:#fff;font-size:.95rem}
+.check-list button.done{border-color:#2a9d5c;background:#eefaf3}
+.check-list button.done .box{background:#2a9d5c;border-color:#2a9d5c}
+.check-note{margin-top:14px;font-weight:800;color:var(--blue-d)}
+/* thermostat */
+.thermo{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:26px;padding:28px;text-align:center;backdrop-filter:blur(6px)}
+.thermo .dial{width:210px;height:210px;margin-inline:auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,#123c5e,#081f33 72%);border:6px solid rgba(255,255,255,.16);box-shadow:inset 0 0 44px rgba(0,0,0,.5);transition:box-shadow .5s}
+.thermo .temp{font-size:3.6rem;font-weight:900;line-height:1;color:#fff}
+.thermo .mode{font-weight:800;margin-top:4px}
+.thermo input[type=range]{width:100%;margin-top:24px;accent-color:var(--warm);height:36px;cursor:pointer}
+.mode-btns{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.mode-btns button{font-family:inherit;font-weight:800;border-radius:999px;border:2px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:9px 22px;cursor:pointer;min-height:44px}
+.mode-btns button[aria-pressed=true]{background:var(--warm);border-color:var(--warm)}
+.mode-btns button.cool[aria-pressed=true]{background:var(--blue);border-color:var(--blue)}
+/* filter tool */
+.tool{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.tool label{font-weight:800;display:block;margin-bottom:8px}
+.tool input,.tool select{width:100%;font-family:inherit;font-size:1rem;padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:#fbfdff;color:var(--ink)}
+.tool input:focus,.tool select:focus{border-color:var(--blue);outline:none}
+.tool .res{margin-top:16px;font-weight:800;border-radius:12px;padding:13px 16px;display:none}
+.res.ok{display:block;background:#eefaf3;color:#14663a;border:1px solid #bfe6cf}
+.res.warn{display:block;background:#fff4e8;color:#9a4a00;border:1px solid #ffd9ae}
+.res.bad{display:block;background:#fdeeee;color:#8f1d28;border:1px solid #f5c2c6}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px;margin-top:34px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--ice2)}
+.card .ic{width:54px;height:54px;border-radius:16px;background:var(--ice);display:grid;place-items:center;font-size:1.55rem;margin-bottom:14px}
+.card h3{font-size:1.16rem;color:var(--navy);margin-bottom:6px}
+.card p{color:var(--muted);font-size:.98rem}
+.sec-head{max-width:720px}
+.sec-head .eyebrow{color:var(--blue);font-weight:900;letter-spacing:.5px;font-size:.95rem}
+/* duct bar */
+.duct{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:26px}
+.duct .bar{height:26px;border-radius:999px;background:var(--ice2);overflow:hidden;margin-top:12px}
+.duct .fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--warm));transition:width 1.4s ease}
+.duct .pct{font-size:2rem;font-weight:900;color:var(--red)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:34px;counter-reset:st}
+.step{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
+.step::before{counter-increment:st;content:counter(st);position:absolute;top:-18px;inset-inline-start:20px;width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:grid;place-items:center;font-size:1.1rem}
+.step h3{margin:8px 0 4px;color:var(--navy)}
+.step p{color:var(--muted);font-size:.97rem}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:30px}
+.gallery figure{border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.gallery img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .7s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figcaption{position:absolute;bottom:0;inset-inline:0;background:linear-gradient(to top,rgba(4,26,44,.82),transparent);color:#fff;padding:34px 16px 12px;font-weight:800}
+/* calculator */
+.calc-out{margin-top:18px;background:var(--ice);border:2px dashed var(--blue);border-radius:14px;padding:18px;display:none}
+.calc-out.show{display:block}
+.calc-out .verdict{font-size:1.25rem;font-weight:900;color:var(--navy)}
+.f-row{margin-bottom:16px}
+/* testimonials */
+.demo-badge{display:inline-block;background:#fff4e8;color:#9a4a00;border:1px solid #ffd9ae;font-size:.8rem;font-weight:800;padding:3px 12px;border-radius:999px}
+.stars{color:#f5a300;font-size:1.05rem;letter-spacing:2px}
+.card .who{margin-top:12px;font-weight:800;color:var(--navy);font-size:.95rem}
+/* faq */
+.faq{max-width:820px;margin-top:26px;display:grid;gap:12px}
+.faq details{background:#fff;border:2px solid var(--line);border-radius:16px;padding:6px 20px}
+.faq summary{cursor:pointer;font-weight:800;color:var(--navy);padding:13px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;color:var(--blue)}
+.faq details[open ] summary::after{content:"–"}
+.faq p{color:var(--muted);padding-bottom:16px}
+/* form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid .full{grid-column:1/-1}
+.err{color:#b3261e;font-size:.88rem;font-weight:700;display:none;margin-top:5px}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--red)}
+.field.invalid .err{display:block}
+.success{display:none;background:#eefaf3;border:2px solid #2a9d5c;color:#14663a;border-radius:14px;padding:18px;font-weight:800;margin-top:18px}
+.success.show{display:block}
+/* footer */
+footer{background:var(--navy);color:#cfe4f5;padding-block:56px 28px;margin-top:0}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:30px}
+footer h4{color:#fff;margin-bottom:12px}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .fine{border-top:1px solid rgba(255,255,255,.16);margin-top:34px;padding-top:18px;font-size:.9rem;color:#9dc0da;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.call-fab{position:fixed;bottom:18px;inset-inline-start:18px;z-index:105;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:none;place-items:center;font-size:1.5rem;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+}
+@media (max-width:900px){
+  .chapter .grid{grid-template-columns:1fr}
+  .chapter{padding-block:64px}
+}
+@media (max-width:760px){
+  .nav-links{position:fixed;top:70px;inset-inline:16px;background:#fff;border-radius:18px;box-shadow:var(--shadow);flex-direction:column;padding:18px;gap:6px;display:none;z-index:115}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 10px;border-bottom:1px solid var(--line);color:var(--navy)}
+  #menuBtn{display:grid;place-items:center}
+  .nav .btn-call{display:none}
+  header{background:rgba(255,255,255,.94);box-shadow:0 6px 24px rgba(6,38,63,.10)}
+  .logo{color:var(--navy)}
+  .form-grid{grid-template-columns:1fr}
+  .call-fab{display:grid}
+  .hero-in{padding-block:110px 60px}
+}
+@media (min-width:761px){
+  .logo{color:#fff} header.scrolled .logo{color:var(--navy)}
+  .logo small{color:#9dc0da} header.scrolled .logo small{color:var(--muted)}
+  .nav-links a{color:#fff;text-shadow:0 1px 8px rgba(4,26,44,.55)} header.scrolled .nav-links a{color:var(--navy);text-shadow:none}
+  header:not(.scrolled){background:linear-gradient(to bottom,rgba(4,26,44,.52),rgba(4,26,44,0))}
+}
+@media (max-width:760px){
+  .hero h1{font-size:clamp(1.95rem,10.5vw,2.6rem)}
+  .hero p{text-shadow:0 1px 10px rgba(4,26,44,.6)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header id="siteHeader">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="الصفحة الرئيسية">
+      <span class="mark" aria-hidden="true">❄</span>
+      <span><span data-cfg="name">إيركول برو</span><small>تكييف · تدفئة · صيانة</small></span>
+    </a>
+    <button id="menuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <nav class="nav-links" id="navLinks" aria-label="التنقل الرئيسي">
+      <a href="#services">الخدمات</a>
+      <a href="#systems">الأنظمة</a>
+      <a href="#why">لماذا نحن</a>
+      <a href="#process">آلية العمل</a>
+      <a href="#calc">حاسبة الإصلاح</a>
+      <a href="#faq">الأسئلة</a>
+      <a href="#book">احجز موعدًا</a>
+    </nav>
+    <a class="btn btn-call" data-tel href="tel:+212600000000">📞 <span data-cfg="phoneLabel">اتصل الآن</span></a>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="bg" id="heroBg" src="img/hero.jpg" alt="فني تكييف يفحص وحدة خارجية بجانب منزل حديث" fetchpriority="high">
+  <div class="wrap hero-in">
+    <span class="kicker">تركيب · صيانة · إصلاح — <span data-cfg="city">[المدينة]</span></span>
+    <h1>بارد في الصيف…<br><span class="cool">مريح</span> طوال العام، <span class="hot">ودافئ</span> حين يبرد الجو.</h1>
+    <p>من فحص الوحدة الخارجية إلى آخر تفصيلة في بيتك: نركّب ونصلح ونصون أنظمة التكييف والتدفئة بعناية فنيين متخصصين — احجز فحصك اليوم.</p>
+    <div class="hero-cta">
+      <a class="btn btn-warm" href="#book">اطلب الخدمة</a>
+      <a class="btn btn-ghost" data-tel href="tel:+212600000000">📞 اتصل الآن</a>
+    </div>
+    <p class="scroll-hint"><span aria-hidden="true">↓</span> مرّر للأسفل — القصة تبدأ من الوحدة الخارجية</p>
+  </div>
+</section>
+
+<!-- CHAPTER 1 : every part checked -->
+<section class="chapter" id="check">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">كل قطعة… <span class="accent">تُفحص.</span></h2>
+      <p class="lead">الفحص الحقيقي لا يقف عند «يشتغل أم لا». اضغط على كل عنصر لتعلّمه كمفحوص، وسترى قائمة الفحص التي يمرّ بها فنيّنا في كل زيارة صيانة.</p>
+      <ul class="check-list" id="checkList">
+        <li><button type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>الضاغط (الكومبريسور) وقياس الأمبير</button></li>
+        <li><button type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>مستوى غاز التبريد وكشف التسريبات</button></li>
+        <li><button type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>الفلتر وتنظيف المبادل الحراري</button></li>
+        <li><button type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>المروحة والأحزمة والأصوات غير الطبيعية</button></li>
+        <li><button type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>الترموستات والمعايرة وتصريف المياه</button></li>
+      </ul>
+      <p class="check-note" id="checkNote" role="status">0 من 5 عناصر مفحوصة</p>
+    </div>
+    <div class="photo-wrap reveal">
+      <span class="tag">من وحي المرجع: الوحدة الخارجية</span>
+      <div class="photo"><img src="img/hero.jpg" alt="وحدة تكييف خارجية محاطة بأوراق الخريف أثناء الفحص" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 : thermostat -->
+<section class="chapter dark" id="thermo">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">درجة واحدة…<br><span class="accent-w">تغيّر إحساس البيت كله.</span></h2>
+      <p class="lead">جرّب بنفسك: حرّك الترموستات وبدّل بين التبريد والتدفئة. هكذا بالضبط نشرح لك إعدادات نظامك بعد كل تركيب أو صيانة — حتى تتحكم براحتك بثقة.</p>
+    </div>
+    <div class="thermo reveal" aria-label="ترموستات تفاعلي تجريبي">
+      <div class="dial" id="dial"><div><div class="temp"><span id="tempVal">22</span>°</div><div class="mode" id="modeLabel" style="color:#ffb37a">تدفئة</div></div></div>
+      <label for="tempRange" style="font-weight:800;display:block;margin-top:20px">اسحب لضبط الحرارة</label>
+      <input type="range" id="tempRange" min="16" max="32" value="22" step="1" aria-describedby="modeLabel">
+      <div class="mode-btns" role="group" aria-label="وضع التشغيل">
+        <button type="button" id="btnHeat" aria-pressed="true">🔥 تدفئة</button>
+        <button type="button" id="btnCool" class="cool" aria-pressed="false">❄ تبريد</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 3 : furnace / warm -->
+<section class="chapter alt" id="warm">
+  <div class="wrap grid">
+    <div class="photo-wrap reveal">
+      <span class="tag">لهب أزرق = احتراق سليم</span>
+      <div class="photo"><img src="img/furnace.jpg" alt="شعلات فرن غاز بلهب أزرق أثناء الفحص" loading="lazy"></div>
+    </div>
+    <div class="reveal">
+      <h2 class="big">دافئ… <span class="accent-w">أخيرا.</span></h2>
+      <p class="lead">نفحص شعلات الفرن والمبادل الحراري وحساسات الأمان، لأن التدفئة الجيدة ليست حرارة فقط — بل حرارة آمنة وهادئة وموزعة في كل غرفة.</p>
+      <div class="photo" style="margin-top:22px"><img src="img/living.jpg" alt="غرفة معيشة دافئة بمكيف جداري والثلج خارج النافذة" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER TOOL -->
+<section class="chapter" id="filter">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">متى آخر مرة<br><span class="accent">بدّلت هذا الفلتر؟</span></h2>
+      <p class="lead">فلتر متّسخ يخنق تدفق الهواء ويرفع فاتورة الكهرباء ويقصّر عمر الجهاز. أدخل تاريخ آخر تبديل وسنخبرك بالحالة فورًا — تذكير صغير يوفر عليك إصلاحًا كبيرًا.</p>
+    </div>
+    <div class="tool reveal">
+      <div class="f-row"><label for="filterDate">تاريخ آخر تبديل للفلتر</label><input type="date" id="filterDate"></div>
+      <button class="btn btn-call" type="button" id="filterBtn" style="width:100%;justify-content:center">افحص حالة الفلتر</button>
+      <p class="res" id="filterRes" role="status"></p>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section class="chapter alt" id="systems">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">الأنظمة</p>
+      <h2 class="big">اختر النظام <span class="accent">المناسب لبيتك</span></h2>
+      <p class="lead">ثلاثة مسارات رئيسية — نساعدك على الاختيار حسب مساحة البيت وعزله وميزانيتك، من دون دفعك نحو الأغلى دائمًا.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><div class="ic" aria-hidden="true">♨️</div><h3>المضخة الحرارية (Heat Pump)</h3><p>تبريد وتدفئة في جهاز واحد عالي الكفاءة — خيار ممتاز للمناخ المعتدل ولمن يريد فاتورة أخف على المدى الطويل.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🌀</div><h3>ميني-سبليت بدون مجاري (Ductless)</h3><p>وحدة لكل غرفة وتحكم مستقل — مثالي للإضافات والشقق والغرف التي لا تصلها المجاري، وتركيبه أسرع وأقل إزعاجًا.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🏠</div><h3>نظام مركزي بالمجاري</h3><p>توزيع متوازن للبيت كاملًا من وحدة واحدة — الأنسب للمنازل الكبيرة ذات المجاري الجاهزة بحالة جيدة.</p></article>
+    </div>
+    <div class="duct reveal">
+      <h3 style="color:var(--navy)">حقيقة المجاري التي لا يخبرك بها الكثيرون</h3>
+      <p style="color:var(--muted)">في الأنظمة ذات المجاري المتسربة أو غير المعزولة، قد لا يصل جزء كبير من الهواء المعالج إلى الغرف أصلًا — لهذا يتضمن فحصنا اختبار تسرب المجاري وعزلها.</p>
+      <p class="pct"><span id="ductPct">0</span>%</p>
+      <p style="font-weight:800;color:var(--navy)">من الهواء قد يضيع في مجارٍ متسربة — حسب حالة المجاري</p>
+      <div class="bar" role="img" aria-label="شريط يوضح أن حتى 30 بالمئة من الهواء قد يضيع في المجاري المتسربة"><div class="fill" id="ductFill"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="chapter" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">خدماتنا</p>
+      <h2 class="big">من التركيب <span class="accent">إلى الطوارئ</span></h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><div class="ic" aria-hidden="true">🔧</div><h3>تركيب المكيفات</h3><p>دراسة الأحمال، اختيار القدرة المناسبة، تركيب نظيف واختبار كامل قبل المغادرة — للسبليت والميني-سبليت والمركزي.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🧼</div><h3>الصيانة الدورية</h3><p>تنظيف الفلاتر والمبادلات، فحص الغاز والتوصيلات، ومعايرة الترموستات — زيارات مجدولة تحافظ على الكفاءة.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🚨</div><h3>إصلاح الأعطال</h3><p>تشخيص دقيق قبل أي استبدال: ضعف تبريد، تسريب مياه، أصوات غريبة، أو توقف مفاجئ — مع شرح واضح للتكلفة قبل البدء.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🔥</div><h3>أنظمة التدفئة</h3><p>تركيب وصيانة الأفران والمضخات الحرارية والشعلات، وفحص السلامة والاحتراق في بداية كل موسم بارد.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🩺</div><h3>فحص الأنظمة الشامل</h3><p>تقرير حالة مكتوب لنظامك الحالي: الكفاءة، الأعطال الخفية، وأولويات الإصلاح — مفيد قبل شراء منزل أو تجديده.</p></article>
+      <article class="card reveal"><div class="ic" aria-hidden="true">🌬️</div><h3>المجاري وجودة الهواء</h3><p>كشف تسرب المجاري وعزلها وتنظيفها، وحلول ترشيح وتحكم بالرطوبة لهواء داخلي أنقى.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="chapter alt" id="why">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">لماذا يختارنا <span class="accent">العملاء؟</span></h2>
+      <p class="lead">قيم عمل حقيقية نلتزم بها في كل زيارة — وقابلة للتعديل بالكامل حسب شركتك الفعلية قبل الإطلاق الرسمي.</p>
+      <div class="cards" style="grid-template-columns:1fr 1fr;margin-top:24px">
+        <article class="card"><div class="ic" aria-hidden="true">⚡</div><h3>استجابة سريعة</h3><p>نرد على طلبات الخدمة في نفس يوم العمل ونحدد موعدًا واضحًا — بلا انتظار مفتوح.</p></article>
+        <article class="card"><div class="ic" aria-hidden="true">🎓</div><h3>فنيون متخصصون</h3><p>فريق مدرّب على أحدث الأنظمة وأدوات قياس دقيقة — تشخيص مبني على أرقام، لا تخمين.</p></article>
+        <article class="card"><div class="ic" aria-hidden="true">🧾</div><h3>سعر قبل البدء</h3><p>تشرح لك التكلفة والخيارات قبل أي إصلاح. لا مفاجآت في الفاتورة.</p></article>
+        <article class="card"><div class="ic" aria-hidden="true">🧹</div><h3>نظافة واحترام للبيت</h3><p>نحمي الأرضيات والأثاث ونترك المكان أنظف مما وجدناه.</p></article>
+      </div>
+    </div>
+    <div class="photo-wrap reveal">
+      <span class="tag">تركيب ميني-سبليت</span>
+      <div class="photo"><img src="img/install.jpg" alt="فني يركب وحدة ميني-سبليت داخلية في شقة حديثة" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="chapter" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">من نحن</p>
+      <h2 class="big">شركة محلية… <span class="accent">بمعايير كبيرة</span></h2>
+      <p class="lead"><span data-cfg="name">إيركول برو</span> شركة تكييف وتدفئة تخدم <span data-cfg="city">[المدينة]</span> والمناطق المجاورة: فريق صغير بعناية كبيرة، يجمع بين خبرة الميدان وأدوات التشخيص الحديثة. <em>(نص تعريفي قابل للاستبدال بقصة الشركة الحقيقية.)</em></p>
+    </div>
+    <div class="cards">
+      <article class="card reveal" style="text-align:center"><div class="ic" style="margin-inline:auto" aria-hidden="true">👨‍🔧</div><h3>[اسم الفني الأول]</h3><p>فني تركيب أول — تخصص سبليت وميني-سبليت<br><span class="demo-badge">بيانات تجريبية قابلة للاستبدال</span></p></article>
+      <article class="card reveal" style="text-align:center"><div class="ic" style="margin-inline:auto" aria-hidden="true">👩‍🔧</div><h3>[اسم الفنية الثانية]</h3><p>فنية صيانة وتشخيص — تخصص أفران ومضخات حرارية<br><span class="demo-badge">بيانات تجريبية قابلة للاستبدال</span></p></article>
+      <article class="card reveal" style="text-align:center"><div class="ic" style="margin-inline:auto" aria-hidden="true">🧑‍💼</div><h3>[اسم مسؤول الخدمة]</h3><p>تنسيق المواعيد وخدمة العملاء<br><span class="demo-badge">بيانات تجريبية قابلة للاستبدال</span></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="chapter alt" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">آلية العمل</p><h2 class="big">من أول مكالمة… <span class="accent">إلى بيت مريح</span></h2></div>
+    <div class="steps">
+      <article class="step reveal"><h3>اطلب موعدك</h3><p>اتصل أو املأ النموذج بالأسفل وأخبرنا بنوع المشكلة أو الخدمة المطلوبة.</p></article>
+      <article class="step reveal"><h3>التشخيص والفحص</h3><p>يصل الفني في الموعد، يفحص النظام كاملًا ويشرح لك النتائج والخيارات بأسعارها.</p></article>
+      <article class="step reveal"><h3>التنفيذ النظيف</h3><p>ننفذ الإصلاح أو التركيب المتفق عليه فقط، مع حماية المكان واختبار كل شيء أمامك.</p></article>
+      <article class="step reveal"><h3>المتابعة</h3><p>نذكّرك بمواعيد الصيانة القادمة ونبقى على اتصال لأي سؤال بعد الزيارة.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="chapter" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">من الميدان</p><h2 class="big">أعمال <span class="accent">تتحدث عنا</span></h2><p class="lead">صور توضيحية مولّدة لهذا النموذج — تُستبدل بصور أعمال الشركة الحقيقية قبل الإطلاق.</p></div>
+    <div class="gallery">
+      <figure class="reveal"><img src="img/hero.jpg" alt="فحص وحدة خارجية" loading="lazy"><figcaption>فحص وصيانة وحدة خارجية</figcaption></figure>
+      <figure class="reveal"><img src="img/install.jpg" alt="تركيب ميني سبليت" loading="lazy"><figcaption>تركيب ميني-سبليت في شقة</figcaption></figure>
+      <figure class="reveal"><img src="img/furnace.jpg" alt="فحص شعلات فرن" loading="lazy"><figcaption>فحص شعلات فرن الغاز</figcaption></figure>
+      <figure class="reveal"><img src="img/living.jpg" alt="غرفة معيشة دافئة" loading="lazy"><figcaption>النتيجة: دفء في الداخل، ثلج في الخارج</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="chapter dark" id="calc">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">تصلحه…<br><span class="accent-w">أم تستبدله؟</span></h2>
+      <p class="lead">قاعدة عملية يستخدمها الفنيون: إذا تجاوزت كلفة الإصلاح نصف قيمة جهاز جديد، وكان عمر الجهاز متقدمًا، فالاستبدال غالبًا أوفر على المدى الطويل. جرّب الحاسبة — النتيجة تقدير إرشادي غير ملزم، والقرار النهائي بعد فحص ميداني.</p>
+    </div>
+    <div class="tool reveal" style="background:#fff;color:var(--ink)">
+      <div class="f-row"><label for="age">عمر الجهاز الحالي (سنوات)</label><input type="number" id="age" min="0" max="40" value="12"></div>
+      <div class="f-row"><label for="repair">كلفة الإصلاح المعروضة عليك (درهم)</label><input type="number" id="repair" min="0" value="4500"></div>
+      <div class="f-row"><label for="newCost">كلفة جهاز جديد مركّب تقريبًا (درهم)</label><input type="number" id="newCost" min="0" value="14000"></div>
+      <button class="btn btn-warm" type="button" id="calcBtn" style="width:100%;justify-content:center">احسب التوصية</button>
+      <div class="calc-out" id="calcOut" role="status"><p class="verdict" id="calcVerdict"></p><p id="calcDetail" style="color:var(--muted);margin-top:6px"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="chapter" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">آراء العملاء</p><h2 class="big">ماذا يقول <span class="accent">عملاؤنا؟</span></h2><p class="lead">الأمثلة التالية <strong>نصوص تجريبية للعرض فقط</strong> — تُستبدل بآراء حقيقية موثقة قبل الإطلاق، ولا تُنسب لأشخاص حقيقيين.</p></div>
+    <div class="cards">
+      <article class="card reveal"><span class="demo-badge">رأي تجريبي</span><p class="stars" aria-label="خمس نجوم">★★★★★</p><p>«وصل الفني في الموعد، شرح لي المشكلة بالصور قبل الإصلاح، والسعر لم يتغير عما اتفقنا عليه.»</p><p class="who">[اسم عميل تجريبي] — صيانة مكيف</p></article>
+      <article class="card reveal"><span class="demo-badge">رأي تجريبي</span><p class="stars" aria-label="خمس نجوم">★★★★★</p><p>«ركّبنا ميني-سبليت لغرفتين في يوم واحد، والبيت صار أهدأ والفاتورة أخف بوضوح.»</p><p class="who">[اسم عميلة تجريبية] — تركيب ميني-سبليت</p></article>
+      <article class="card reveal"><span class="demo-badge">رأي تجريبي</span><p class="stars" aria-label="أربع نجوم ونصف">★★★★☆</p><p>«فحص الفرن قبل الشتاء كشف مشكلة في حساس الأمان — تجنبنا عطلًا في أبرد أسبوع.»</p><p class="who">[اسم عميل تجريبي] — فحص تدفئة</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="chapter alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">الأسئلة الشائعة</p><h2 class="big">قبل أن <span class="accent">تحجز</span></h2></div>
+    <div class="faq reveal">
+      <details><summary>كم مرة يجب صيانة المكيف في السنة؟</summary><p>مرة واحدة على الأقل سنويًا قبل موسم الحر، ومرتان إذا كان الاستخدام كثيفًا أو في بيئة غبارية. الصيانة تشمل تنظيف الفلاتر والمبادلات وفحص الغاز والتوصيلات.</p></details>
+      <details><summary>كم يستغرق تركيب مكيف سبليت جديد؟</summary><p>غالبًا من 3 إلى 5 ساعات للوحدة الواحدة في الظروف العادية، ويشمل ذلك التثبيت والتمديدات والاختبار وشرح طريقة التشغيل.</p></details>
+      <details><summary>المكيف يبرّد بشكل ضعيف — ما الأسباب المحتملة؟</summary><p>أكثر الأسباب شيوعًا: فلتر متسخ، نقص غاز بسبب تسريب، مبادل خارجي مغطى بالغبار، أو خلل في الضاغط. التشخيص الميداني يحدد السبب قبل أي إصلاح.</p></details>
+      <details><summary>هل تقدمون تقديرًا قبل بدء الإصلاح؟</summary><p>نعم — بعد التشخيص نشرح لك الخيارات وكلفتها، ولا يبدأ أي عمل مدفوع قبل موافقتك.</p></details>
+      <details><summary>كيف أحجز موعدًا؟</summary><p>اتصل بنا على <a data-tel href="tel:+212600000000" style="color:var(--blue);font-weight:800">رقم الهاتف</a> أو املأ نموذج الحجز بالأسفل، وسنعاود الاتصال بك لتأكيد الموعد.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="chapter" id="book">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="big">احجز <span class="accent">موعدك</span></h2>
+      <p class="lead">املأ النموذج وسيتواصل معك فريقنا لتأكيد الموعد. في هذا النموذج التجريبي تُعالج البيانات داخل متصفحك فقط ولا تُرسل إلى أي خادم — يُربط النموذج ببريد الشركة أو واتساب عند الإطلاق الفعلي.</p>
+      <p class="lead" style="margin-top:16px">📞 <a data-tel href="tel:+212600000000" style="font-weight:900;color:var(--blue-d)"><span data-cfg="phone"> ‎+212 600-000000‎</span></a><br>✉️ <span data-cfg="email">contact@aircoolpro.example</span><br>🕘 <span data-cfg="hours">الاثنين – السبت: 8:00 – 19:00</span></p>
+    </div>
+    <form class="tool reveal" id="bookForm" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="fName">الاسم الكامل *</label><input type="text" id="fName" name="name" autocomplete="name" required><p class="err">فضلًا أدخل اسمك.</p></div>
+        <div class="field"><label for="fPhone">رقم الهاتف *</label><input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required><p class="err">أدخل رقم هاتف صحيحًا (6 أرقام على الأقل).</p></div>
+        <div class="field full"><label for="fService">نوع الخدمة *</label>
+          <select id="fService" name="service" required>
+            <option value="">— اختر الخدمة —</option><option>تركيب مكيف جديد</option><option>صيانة دورية</option><option>إصلاح عطل</option><option>تدفئة / فرن</option><option>فحص شامل للنظام</option><option>أخرى</option>
+          </select><p class="err">فضلًا اختر نوع الخدمة.</p></div>
+        <div class="field full"><label for="fMsg">رسالتك</label><textarea id="fMsg" name="message" rows="4" placeholder="صف المشكلة أو ما تحتاجه باختصار…"></textarea></div>
+      </div>
+      <button class="btn btn-warm" type="submit" style="width:100%;justify-content:center;margin-top:18px">أرسل طلب الموعد</button>
+      <p class="success" id="formOk" role="status" tabindex="-1"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4><span data-cfg="name">إيركول برو</span></h4><p>تكييف وتدفئة وصيانة — راحة بيتك في كل الفصول.</p></div>
+      <div><h4>روابط مهمة</h4><p><a href="#services">الخدمات</a><br><a href="#systems">الأنظمة</a><br><a href="#calc">حاسبة الإصلاح أو الاستبدال</a><br><a href="#book">احجز موعدًا</a></p></div>
+      <div><h4>تواصل معنا</h4><p>📞 <a data-tel href="tel:+212600000000"><span data-cfg="phone"> ‎+212 600-000000‎</span></a><br>✉️ <span data-cfg="email">contact@aircoolpro.example</span><br>📍 <span data-cfg="city">[المدينة]</span></p></div>
+      <div><h4>ساعات العمل</h4><p><span data-cfg="hours">الاثنين – السبت: 8:00 – 19:00</span><br>الأحد: طوارئ بالحجز المسبق<br><span class="demo-badge" style="margin-top:8px">البيانات والهاتف والبريد نماذج قابلة للتعديل من ملف الإعدادات داخل الكود</span></p></div>
+    </div>
+    <div class="fine"><span>© <span id="year"></span> <span data-cfg="name">إيركول برو</span> — جميع الحقوق محفوظة.</span><span>تصميم مستلهم من مرجع العميل — نسخة تجريبية قابلة للتخصيص.</span></div>
+  </div>
+</footer>
+
+<a class="call-fab" data-tel href="tel:+212600000000" aria-label="اتصال سريع">📞</a>
+
+<script>
+/* ============ إعدادات الشركة — عدّل هنا فقط ============ */
+const CONFIG = {
+  name: "إيركول برو",                 // [اسم الشركة]
+  city: "[المدينة]",                  // [المدينة]
+  phone: "+212600000000",              // [رقم الهاتف] بصيغة دولية للروابط
+  phoneLabel: "اتصل الآن",
+  email: "contact@aircoolpro.example", // [البريد الإلكتروني]
+  hours: "الاثنين – السبت: 8:00 – 19:00" // [ساعات العمل]
+};
+/* ====================================================== */
+document.title = CONFIG.name + " — تكييف وتدفئة";
+document.querySelectorAll("[data-cfg]").forEach(el=>{
+  const k = el.getAttribute("data-cfg");
+  if(k==="phone") el.textContent = " ‎" + CONFIG.phone.replace(/(\+\d{3})(\d{3})(\d+)/,"$1 $2-$3") + "‎";
+  else if(CONFIG[k]) el.textContent = CONFIG[k];
+});
+document.querySelectorAll("[data-tel]").forEach(a=>a.href="tel:"+CONFIG.phone);
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* header + progress */
+const header = document.getElementById("siteHeader"), prog = document.getElementById("progress"), heroBg = document.getElementById("heroBg");
+addEventListener("scroll", ()=>{
+  const y = scrollY;
+  header.classList.toggle("scrolled", y>40);
+  const h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (h>0 ? (y/h)*100 : 0) + "%";
+  if(!reduced && y < innerHeight) heroBg.style.transform = "scale(1.06) translateY(" + (y*0.18) + "px)";
+}, {passive:true});
+
+/* mobile menu */
+const menuBtn = document.getElementById("menuBtn"), navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", ()=>{
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.setAttribute("aria-label", open ? "إغلاق القائمة" : "فتح القائمة");
+});
+navLinks.addEventListener("click", e=>{ if(e.target.tagName==="A"){ navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }});
+addEventListener("keydown", e=>{ if(e.key==="Escape"){ navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }});
+
+/* reveal on scroll */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    en.target.classList.add("in");
+    io.unobserve(en.target);
+  });
+},{threshold:.18});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+/* duct bar — observer مستقل بعتبة أخف حتى يعمل عند القفز بالروابط */
+const ductFill = document.getElementById("ductFill"), ductPct = document.getElementById("ductPct");
+const ductIO = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    ductFill.style.width = "30%";
+    if(reduced){ ductPct.textContent = 30; }
+    else { let n=0; const t=setInterval(()=>{ n++; ductPct.textContent=n; if(n>=30) clearInterval(t); },45); }
+    ductIO.disconnect();
+  });
+},{threshold:.05});
+ductIO.observe(ductFill.closest(".duct"));
+
+/* checklist */
+const items = document.querySelectorAll("#checkList button"), note = document.getElementById("checkNote");
+items.forEach(btn=>btn.addEventListener("click", ()=>{
+  btn.classList.toggle("done");
+  const done = btn.classList.contains("done");
+  btn.setAttribute("aria-pressed", done);
+  btn.querySelector(".box").textContent = done ? "✓" : "";
+  const c = document.querySelectorAll("#checkList button.done").length;
+  note.textContent = c===5 ? "✓ فحص كامل — هكذا نغادر كل زيارة صيانة." : c + " من 5 عناصر مفحوصة";
+}));
+
+/* thermostat */
+const range = document.getElementById("tempRange"), tempVal = document.getElementById("tempVal"),
+      dial = document.getElementById("dial"), modeLabel = document.getElementById("modeLabel"),
+      bH = document.getElementById("btnHeat"), bC = document.getElementById("btnCool");
+let mode = "heat", shown = 22, animTimer = null;
+function paint(){
+  tempVal.textContent = shown;
+  const warmGlow = "inset 0 0 44px rgba(0,0,0,.5), 0 0 60px rgba(255,122,26,.45)";
+  const coolGlow = "inset 0 0 44px rgba(0,0,0,.5), 0 0 60px rgba(80,180,255,.5)";
+  dial.style.boxShadow = mode==="heat" ? warmGlow : coolGlow;
+  modeLabel.textContent = mode==="heat" ? "تدفئة" : "تبريد";
+  modeLabel.style.color = mode==="heat" ? "#ffb37a" : "#8fd3ff";
+}
+function animateTo(target){
+  if(animTimer){ clearInterval(animTimer); animTimer = null; }
+  if(reduced){ shown = target; paint(); return; }
+  animTimer = setInterval(()=>{
+    if(shown===target){ clearInterval(animTimer); animTimer = null; return; }
+    shown += target>shown ? 1 : -1; paint();
+  },55);
+}
+range.addEventListener("input", ()=>animateTo(+range.value));
+bH.addEventListener("click", ()=>{ mode="heat"; bH.setAttribute("aria-pressed","true"); bC.setAttribute("aria-pressed","false"); paint(); });
+bC.addEventListener("click", ()=>{ mode="cool"; bC.setAttribute("aria-pressed","true"); bH.setAttribute("aria-pressed","false"); paint(); });
+paint();
+
+/* filter tool */
+document.getElementById("filterBtn").addEventListener("click", ()=>{
+  const v = document.getElementById("filterDate").value, res = document.getElementById("filterRes");
+  if(!v){ res.className="res bad"; res.textContent="فضلًا اختر تاريخ آخر تبديل أولًا."; return; }
+  const months = (Date.now() - new Date(v).getTime()) / (1000*60*60*24*30.44);
+  if(months < 3){ res.className="res ok"; res.textContent="✓ فلترك بحالة جيدة — " + Math.max(0,months.toFixed(1)) + " شهر منذ التبديل. واصل الفحص كل 3 أشهر."; }
+  else if(months < 6){ res.className="res warn"; res.textContent="⚠ حان وقت الفحص — مرّت " + months.toFixed(1) + " أشهر. نظّفه أو بدّله قريبًا."; }
+  else { res.className="res bad"; res.textContent="✖ متأخر جدًا — " + months.toFixed(1) + " أشهر! بدّل الفلتر الآن واحجز صيانة إذا ضعف التبريد."; }
+});
+
+/* calculator */
+document.getElementById("calcBtn").addEventListener("click", ()=>{
+  const age = +document.getElementById("age").value || 0,
+        rep = +document.getElementById("repair").value || 0,
+        nw  = +document.getElementById("newCost").value || 0,
+        out = document.getElementById("calcOut"),
+        verdict = document.getElementById("calcVerdict"), detail = document.getElementById("calcDetail");
+  if(nw<=0){ verdict.textContent="أدخل كلفة جهاز جديد صحيحة أولًا."; out.classList.add("show"); return; }
+  const ratio = rep/nw;
+  let v, d;
+  if(age>=12 && ratio>=0.35){ v="التوصية: الاستبدال غالبًا أوفر"; d="عمر الجهاز " + age + " سنة وكلفة الإصلاح تعادل " + Math.round(ratio*100) + "% من جهاز جديد — المال نفسه يُستثمر أفضل في جهاز أكفأ وأهدأ."; }
+  else if(ratio>=0.5){ v="التوصية: الاستبدال يستحق التفكير الجدي"; d="الإصلاح وحده يكلف " + Math.round(ratio*100) + "% من الجديد — قارن الضمان والكفاءة قبل أن تقرر."; }
+  else { v="التوصية: الإصلاح منطقي غالبًا"; d="كلفة الإصلاح تعادل " + Math.round(ratio*100) + "% فقط من جهاز جديد، وعمر جهازك " + age + " سنة — أصلح وراقب الأداء."; }
+  verdict.textContent = v; detail.textContent = d + " (تقدير إرشادي — القرار النهائي بعد فحص ميداني.)";
+  out.classList.add("show");
+});
+
+/* form validation */
+const form = document.getElementById("bookForm");
+function setValid(input, ok){ input.closest(".field").classList.toggle("invalid", !ok); return ok; }
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+  const name = document.getElementById("fName"), phone = document.getElementById("fPhone"), svc = document.getElementById("fService");
+  let ok = true;
+  ok = setValid(name, name.value.trim().length>=2) && ok;
+  ok = setValid(phone, phone.value.replace(/\D/g,"").length>=6) && ok;
+  ok = setValid(svc, svc.value!=="") && ok;
+  if(!ok){ form.querySelector(".field.invalid input,.field.invalid select").focus(); return; }
+  const box = document.getElementById("formOk");
+  box.textContent = "✓ شكرًا " + name.value.trim() + " — تم استلام طلبك لهذا العرض التجريبي بنجاح. في النسخة الفعلية يصل الطلب مباشرة إلى فريق " + CONFIG.name + " لتأكيد الموعد.";
+  box.classList.add("show"); box.focus();
+  form.reset();
+});
+["fName","fPhone","fService"].forEach(id=>{
+  document.getElementById(id).addEventListener("input", e=>e.target.closest(".field").classList.remove("invalid"));
+});
+</script>
+</body>
+</html>
